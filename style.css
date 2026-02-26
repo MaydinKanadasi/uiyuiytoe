@@ -6,6 +6,22 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+    background-color: #f8f9fa;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.score {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 #game-board {

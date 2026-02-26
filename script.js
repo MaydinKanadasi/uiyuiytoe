@@ -15,7 +15,15 @@ const cellElements = document.querySelectorAll('[data-cell]');
 const board = document.getElementById('game-board');
 const gameStatus = document.getElementById('game-status');
 const restartButton = document.getElementById('restart-button');
+const mScoreElement = document.getElementById('m-score');
+const cScoreElement = document.getElementById('c-score');
+
 let oTurn;
+let mScore = parseInt(localStorage.getItem('mScore')) || 0;
+let cScore = parseInt(localStorage.getItem('cScore')) || 0;
+
+// İlk skorları yazdır
+updateScoreDisplay();
 
 startGame();
 
@@ -52,10 +60,23 @@ function endGame(draw) {
     gameStatus.innerText = 'Draw!';
   } else {
     gameStatus.innerText = `${oTurn ? "Ç's" : "M's"} Wins!`;
+    if (oTurn) {
+      cScore++;
+      localStorage.setItem('cScore', cScore);
+    } else {
+      mScore++;
+      localStorage.setItem('mScore', mScore);
+    }
+    updateScoreDisplay();
   }
   cellElements.forEach(cell => {
     cell.removeEventListener('click', handleClick);
   });
+}
+
+function updateScoreDisplay() {
+  mScoreElement.innerText = mScore;
+  cScoreElement.innerText = cScore;
 }
 
 function isDraw() {
