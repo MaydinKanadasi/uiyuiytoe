@@ -1,21 +1,50 @@
-# 🧠 Uiy Uiy Toe - Kişiselleştirilebilir Tic Tac Toe Oyunu
+# Tic Tac Toe Web Application
 
-Bu proje klasik **Tic Tac Toe (XOX)** oyununun HTML, CSS ve JavaScript kullanılarak yapılmış kişiselleştirilebilir bir versiyonudur.
+> Repository name: uiyuiytoe
 
-## 🔥 Özellikler
+A simple browser-based Tic Tac Toe game built with HTML, CSS and vanilla JavaScript.
 
-- Tamamen tarayıcı tabanlı
-- Modern arayüz (UI)
-- Kişiselleştirilebilir semboller ve renkler (ilerleyen süreçlerde)
-- Mobil uyumlu (responsive tasarım)
-- Klasik ve minimal tasarım
+This project implements the core game mechanics including turn management, win detection, and board reset functionality.
 
-## 🌐 Canlı Demo
+---
 
-🔗 [Uiy Uiy Toe Netlify Yayını](https://uiyuiytoe.netlify.app)
+## Current Features
 
-## 🛠️ Kullanılan Teknolojiler
+- Two-player mode
+- Turn-based interaction
+- Win detection logic
+- Game restart button
+- Clean and minimal user interface
+
+---
+
+## Tech Stack
 
 - HTML5
 - CSS3
-- JavaScript
+- JavaScript (Vanilla)
+
+---
+
+## Live Demo
+
+🔗 [Uiy Uiy Toe – Netlify Deployment](https://uiyuiytoe.netlify.app)
+
+---
+
+## What This Project Demonstrates
+
+- Basic game state management
+- Conditional logic implementation
+- DOM manipulation
+- Event handling in JavaScript
+
+---
+
+## Planned Improvements
+
+- Score tracking system
+- Improved UI design
+- Winning combination animations
+- Dark / Light mode
+- Single-player mode with basic AI
