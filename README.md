@@ -1,6 +1,6 @@
 # Tic Tac Toe Web Application
 
-> Repository name: uiyuiytoe
+> Repository name: **uiyuiytoe**
 
 A simple browser-based Tic Tac Toe game built with HTML, CSS and vanilla JavaScript.
 
