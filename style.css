@@ -1,65 +1,385 @@
+/* =====================
+   GENEL
+   ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'Outfit', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
+    background: #7c6fea;
+    background: linear-gradient(135deg, #8b7ff0 0%, #6c5fce 100%);
+    color: #fff;
 }
 
+.hidden {
+    display: none !important;
+}
+
+.game-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* =====================
+   SETUP SCREEN
+   ===================== */
+
+#setup-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.setup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 32px 24px;
+    background: rgba(30, 25, 60, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+    max-width: 680px;
+    width: 95%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.setup-players {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.setup-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(35, 30, 70, 0.8);
+    border-radius: 16px;
+    flex: 1;
+    min-width: 260px;
+    max-width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.setup-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.player-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.p1-icon {
+    background: linear-gradient(135deg, #70e0ff, #56c8e8);
+    color: #1e1940;
+}
+
+.p2-icon {
+    background: linear-gradient(135deg, #ff8fbf, #f06ca0);
+    color: #1e1940;
+}
+
+.player-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+}
+
+.selected-char {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.p1-color {
+    color: #70e0ff;
+}
+
+.p2-color {
+    color: #ff8fbf;
+}
+
+/* Harf Grid'i */
+.letter-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.letter-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(50, 45, 90, 0.8);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.45);
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+}
+
+.letter-btn:hover {
+    background: rgba(70, 65, 120, 0.9);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.letter-btn.active-p1 {
+    background: linear-gradient(135deg, #70e0ff, #56c8e8);
+    color: #1e1940;
+    box-shadow: 0 0 12px rgba(112, 224, 255, 0.4);
+}
+
+.letter-btn.active-p2 {
+    background: linear-gradient(135deg, #ff8fbf, #f06ca0);
+    color: #1e1940;
+    box-shadow: 0 0 12px rgba(255, 143, 191, 0.4);
+}
+
+#start-button {
+    padding: 14px 44px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #70e0ff, #56c8e8);
+    color: #1e1940;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+#start-button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 20px rgba(112, 224, 255, 0.4);
+}
+
+/* =====================
+   GAME SCREEN
+   ===================== */
+
+#game-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Ana oyun kartı */
+.game-card {
+    background: #1e1940;
+    border-radius: 24px;
+    padding: 28px 24px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.notch {
+    width: 60px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    position: absolute;
+    top: 12px;
+}
+
+/* Skor tablosu */
+.score-board {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 8px 18px;
+    border-radius: 12px;
+    background: rgba(50, 45, 90, 0.6);
+}
+
+.score-char {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.score-num {
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.p1-score-card .score-num {
+    color: #70e0ff;
+}
+
+.p2-score-card .score-num {
+    color: #ff8fbf;
+}
+
+.score-divider {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+/* Oyun tahtası */
 #game-board {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    margin-bottom: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 8px;
 }
 
 .cell {
     width: 100px;
     height: 100px;
-    border: 1px solid black;
+    background: rgba(40, 35, 80, 0.9);
+    border: none;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.4rem;
+    font-weight: 800;
     cursor: pointer;
+    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.08);
+    font-family: 'Outfit', sans-serif;
 }
 
-.cell.m::before {
-    content: 'M';
+.cell:hover {
+    background: rgba(55, 50, 100, 0.9);
+    transform: scale(1.03);
 }
 
-.cell.c::before {
-    content: 'Ç';
+.cell.player1 {
+    color: #70e0ff;
+    text-shadow: 0 0 16px rgba(112, 224, 255, 0.5);
+    cursor: default;
+}
+
+.cell.player2 {
+    color: #ff8fbf;
+    text-shadow: 0 0 16px rgba(255, 143, 191, 0.5);
+    cursor: default;
+}
+
+.cell.player1:hover,
+.cell.player2:hover {
+    transform: none;
+}
+
+/* Durum çubuğu */
+#game-status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: #1e1940;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+#turn-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #70e0ff;
+    box-shadow: 0 0 8px rgba(112, 224, 255, 0.6);
 }
 
 #game-status {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Butonlar */
+.game-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.game-buttons button {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
 }
 
 #restart-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
+    background: linear-gradient(135deg, #70e0ff, #56c8e8);
+    color: #1e1940;
 }
 
-.cell:not(.m):not(.c):hover {
-    background-color: #eee;
+#restart-button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 16px rgba(112, 224, 255, 0.3);
 }
 
-.board.m .cell:not(.m):not(.c):hover {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="2rem">M</text></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.5;
+#back-button {
+    background: rgba(50, 45, 90, 0.6);
+    color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.board.c .cell:not(.m):not(.c):hover {
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="2rem">Ç</text></svg>');
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.5;
+#back-button:hover {
+    background: rgba(60, 55, 110, 0.8);
+    color: #fff;
 }
